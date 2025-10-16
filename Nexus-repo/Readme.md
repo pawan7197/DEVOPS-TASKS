@@ -21,6 +21,10 @@ The Java Web Calculator App from GitHub is used as the source project:
 ### 1️⃣ Build Server
 **Purpose:** Clone, build, and deploy artifacts to Nexus.
 
+<img width="611" height="215" alt="buildserver connect" src="https://github.com/user-attachments/assets/74852653-ae26-4acb-b630-e421758d8d89" />
+
+
+
 #### Steps:
 1. **Clone the project**
    ```bash
