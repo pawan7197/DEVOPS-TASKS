@@ -12,6 +12,9 @@ The Java Web Calculator App from GitHub is used as the source project:
 👉 [Java-Web-Calculator-App](https://github.com/mrtechreddy/Java-Web-Calculator-App.git)
 
 ---
+## INSATNCES
+
+<img width="1585" height="466" alt="Image" src="https://github.com/user-attachments/assets/44982e4f-f8df-4631-89c4-91520b520cdf" />
 
 ## 🖥️ Server Roles
 
