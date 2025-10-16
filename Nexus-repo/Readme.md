@@ -198,4 +198,7 @@ Purpose: Deploy .war file from Nexus to Tomcat.
 **2**
 
 
+<img width="1040" height="516" alt="Image" src="https://github.com/user-attachments/assets/872c1e30-aa10-4fe4-af4b-4c1dc5d7a3ea" />
+
+
 
