@@ -21,84 +21,74 @@ The Java Web Calculator App from GitHub is used as the source project:
 ### 1️⃣ Build Server
 **Purpose:** Clone, build, and deploy artifacts to Nexus.
 
-<img width="611" height="215" alt="buildserver connect" src="https://github.com/user-attachments/assets/74852653-ae26-4acb-b630-e421758d8d89" />
-
-
-
 #### Steps:
-1. **Clone the project**
-   ```bash
-   git clone https://github.com/mrtechreddy/Java-Web-Calculator-App.git
-   cd Java-Web-Calculator-App
-Build the application
+**BUILD-SERVER-CONNECT**
 
-``
-mvn clean install
-✅ This generates a .war file inside the target/ directory.
-``
+<img width="611" height="215" alt="Image" src="https://github.com/user-attachments/assets/2ad1a608-4d12-4dc1-98a4-1b373abe4106" />
 
-Configure Maven for Nexus Deployment
-```
+**GIT-CLONE**
 
-Edit pom.xml → add <distributionManagement> section with Nexus URL.
+<img width="868" height="288" alt="Image" src="https://github.com/user-attachments/assets/e2325719-ce70-4894-93f0-ba84a30f88e2" />
 
-Edit ~/.m2/settings.xml → add Nexus credentials.
-```
+**JAVA-INSTALLATION**
 
-Deploy artifact to Nexus
+<img width="765" height="63" alt="Image" src="https://github.com/user-attachments/assets/2b226609-f03a-4953-af4e-c49c744ddc7a" />
 
-```
-mvn deploy
-```
-Deliverables:
-```
-.war file created in target/
-```
+**MAVEN-INSTALLATION**
 
-Artifact successfully uploaded to Nexus Repository
+<img width="688" height="51" alt="Image" src="https://github.com/user-attachments/assets/2ee2d0fa-ff16-404c-82f3-fe14a020dfee" />
 
-### Nexus Repository Server:
+**MAVEN-VALIDATE-PACKAGE**
+
+<img width="1563" height="509" alt="Image" src="https://github.com/user-attachments/assets/6a62fbd7-a582-4b24-b7dc-8d9b27541d74" />
+
+**BUILD-SUCCESS**
+
+<img width="1204" height="224" alt="Image" src="https://github.com/user-attachments/assets/9f650445-84eb-43c8-b870-4db5d20cd7c8" />
 
 
+
+### NEXUS-SERVER :
 Purpose: Store and manage build artifacts (.war files)
 
 Steps:
-```
-Install Nexus Repository Manager
-```
+**NEXUS-SERVER-CONNECT**
+
+<img width="663" height="60" alt="Image" src="https://github.com/user-attachments/assets/92cf62e0-bedc-4be7-9eca-3cb4ef454a54" />
+
+**NEXUS-DOWNLOAD**
+
+<img width="1595" height="411" alt="Image" src="https://github.com/user-attachments/assets/4ad5e914-cc5a-4d5a-a46a-c36f1edd0a23" />
 ```
 wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz
+
+```
+**EXTRACT-FILE**
+
+<img width="1419" height="123" alt="Image" src="https://github.com/user-attachments/assets/61366fcb-ff14-433f-ab30-5692be5cd157" />
+
+```
 tar -xvf latest-unix.tar.gz
+```
+
+**NEXUS-START**
+
+<img width="1361" height="377" alt="Image" src="https://github.com/user-attachments/assets/3203a7b2-fb7b-4bc6-8a14-dad07f172d65" />
+```
 cd nexus-3*
 ./bin/nexus start
+```
+
+**ACCESS-NEXUS**
+
+<img width="1581" height="593" alt="Image" src="https://github.com/user-attachments/assets/9dfa6b52-8169-4cd8-8a8f-8edf97f263b5" />
+
+```
 Access Nexus UI:
 http://<NEXUS_SERVER_IP>:8081
 ```
 
-Create Repositories:
 
-maven-releases
-
-
-
-Set up authentication:
-```
-Create a new user for build and deploy servers.
-
-Update Maven credentials in settings.xml.
-```
-
-Deliverables:
-
-```
-Nexus server up and running
-```
-
-Repositories configured and accessible
-
-```
-Verified .war upload from build server
-```
 ### Deploy Server
 
 Purpose: Deploy .war file from Nexus to Tomcat.
