@@ -65,8 +65,7 @@ wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz
 ```
 **EXTRACT-FILE**
 
-<img width="1419" height="123" alt="Image" src="https://github.com/user-attachments/assets/61366fcb-ff14-433f-ab30-5692be5cd157" />
-
+<img width="1419" height="123" alt="Image" src="https://github.com/user-attachments/assets/5a0bdaf0-4bea-41be-920d-9bb54301f690" />
 
 
 **NEXUS-START**
