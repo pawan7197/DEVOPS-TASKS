@@ -59,10 +59,10 @@ Steps:
 **NEXUS-DOWNLOAD**
 
 <img width="1595" height="411" alt="Image" src="https://github.com/user-attachments/assets/4ad5e914-cc5a-4d5a-a46a-c36f1edd0a23" />
-```
-wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz
 
-```
+
+
+
 **EXTRACT-FILE**
 
 <img width="1419" height="123" alt="Image" src="https://github.com/user-attachments/assets/5a0bdaf0-4bea-41be-920d-9bb54301f690" />
