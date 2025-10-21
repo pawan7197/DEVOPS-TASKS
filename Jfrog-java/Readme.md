@@ -1,107 +1,179 @@
-# Multi-Server Java Application Build, Store, and Deployment System
+# 🧰 Multi-Server Java Web Application Build, Store, and Deployment System (JFrog Artifactory)
 
 ## 🎯 Objective
-The goal of this task is to set up and configure a **multi-server environment** for building, storing, and deploying a **Java web application** using **JFrog Artifactory** as the artifact repository.  
-This project follows a CI/CD-style workflow across three servers:
+This project demonstrates how to set up a **multi-server environment** for building, storing, and deploying a **Java Web Application** using **JFrog Artifactory** as the artifact repository.
 
-- **Java Build Server:** To build the Java web application.
-- **JFrog Artifactory Server:** To store the generated `.war` artifacts.
-- **Deploy Server:** To deploy the application using Apache Tomcat.
-
-The setup ensures smooth communication between all three servers for an automated and reliable deployment process.
+The system consists of **three servers**:
+1. **Java Build Server** → Build and upload the `.war` file to JFrog Artifactory  
+2. **JFrog Repository Server** → Store and manage build artifacts  
+3. **Deploy Server** → Download and deploy the application to Apache Tomcat  
 
 ---
 
-## 🧩 Requirements
-
-- **GitHub Repository:**  
-  Java Web Calculator App – [https://github.com/mrtechreddy/Java-Web-Calculator-App.git](https://github.com/mrtechreddy/Java-Web-Calculator-App.git)
-
-- **Three Servers:**
-  1. Java Build Server  
-  2. JFrog Artifactory Repository Server  
-  3. Deploy Server (Tomcat)
+## 🖥️ Prerequisites
+- Three Ubuntu servers (Build, JFrog, Deploy)
+- Java 17+
+- Apache Maven
+- Git
+- Apache Tomcat (on Deploy server)
+- JFrog Artifactory OSS (on JFrog server)
 
 ---
 
-## 🖥️ 1. Java Build Server Setup
+## 🚀 1️⃣ Java Build Server Setup
 
-### Overview
-The Build Server is responsible for cloning the Java Web Calculator project, building it using Maven, and uploading the generated `.war` file to JFrog Artifactory.
+### Step 1: Update and Install Java + Maven + Git
+```bash
+sudo apt update -y
+sudo apt install openjdk-17-jdk maven git -y
+Step 2: Verify installations
+bash
+Copy code
+java -version
+mvn -version
+git --version
+Step 3: Clone the Project
+bash
+Copy code
+git clone https://github.com/mrtechreddy/Java-Web-Calculator-App.git
+cd Java-Web-Calculator-App
+Step 4: Build the Project
+bash
+Copy code
+mvn clean install
+✅ This generates the .war file under the target/ directory.
 
-### Steps
+📦 2️⃣ JFrog Repository Server Setup
+Step 1: Install JFrog Artifactory OSS
+bash
+Copy code
+sudo apt update -y
+wget https://releases.jfrog.io/artifactory/artifactory-debs/pool/jfrog-artifactory-oss/jfrog-artifactory-oss-7.104.12.deb
+sudo dpkg -i jfrog-artifactory-oss-7.104.12.deb
+Step 2: Start and Enable JFrog Service
+bash
+Copy code
+sudo systemctl start artifactory
+sudo systemctl enable artifactory
+Step 3: Access JFrog UI
+Open your browser and visit:
 
-1. **Clone the Project**  
-   Obtain the Java Web Calculator App source code from the provided GitHub repository.
+arduino
+Copy code
+http://<JFROG_SERVER_IP>:8082/ui/
+Step 4: Create Maven Repositories
+In the JFrog UI:
 
-2. **Build the Application**  
-   Use **Apache Maven** to build the project and generate the `.war` file in the `target/` directory.
+Go to Administration → Repositories → Local
 
-3. **Configure Maven for Deployment**  
-   Modify the `pom.xml` and Maven `settings.xml` files to include:
-   - The **JFrog repository URL**
-   - **Authentication credentials** (username and password/API key)
+Click New Local Repository
 
-4. **Deploy the Artifact**  
-   After a successful build, deploy the `.war` file to JFrog Artifactory using Maven deployment configuration.
+Choose Maven → Release
 
-### Deliverables
-- Cloned Java Web Calculator project directory on the Build Server  
-- `.war` file generated in the `target/` directory  
-- Successfully uploaded artifact in the JFrog repository  
+Name it java-web-release
 
----
+Save it
 
-## 🗄️ 2. JFrog Artifactory Server Setup
+Copy the repository URL, e.g.:
 
-### Overview
-The JFrog Artifactory Server acts as the **central artifact repository** where build artifacts such as `.war` files are stored and managed.
+arduino
+Copy code
+http://<JFROG_SERVER_IP>:8081/artifactory/java-web-release
+⚙️ 3️⃣ Configure Maven for JFrog Deployment
+Step 1: Update pom.xml
+Add this section inside <distributionManagement>:
 
-### Steps
+xml
+Copy code
+<distributionManagement>
+    <repository>
+        <id>jfrog-release</id>
+        <url>http://<JFROG_SERVER_IP>:8081/artifactory/java-web-release</url>
+    </repository>
+</distributionManagement>
+Step 2: Configure Maven credentials in ~/.m2/settings.xml
+bash
+Copy code
+vim ~/.m2/settings.xml
+Add the following:
 
-1. **Install JFrog Artifactory**  
-   Set up JFrog Artifactory OSS or Pro version on the designated server. Ensure that the Artifactory web console is accessible from both the build and deploy servers.
+xml
+Copy code
+<settings>
+  <servers>
+    <server>
+      <id>jfrog-release</id>
+      <username>admin</username>
+      <password><your_admin_password></password>
+    </server>
+  </servers>
+</settings>
+Step 3: Deploy Artifact to JFrog
+bash
+Copy code
+mvn deploy
+✅ This uploads the .war file to JFrog Artifactory under java-web-release.
 
-2. **Create Repositories**  
-   Configure Maven repositories in JFrog:
-   - **Release Repository** for production-ready builds  
-   - **Snapshot Repository** for ongoing development builds  
+Step 4: Verify Upload
+In JFrog UI → Repositories → java-web-release → check for your .war file.
 
-3. **Set Up Authentication**  
-   Configure user accounts and permissions for both uploading and downloading artifacts.  
-   Update the Maven `settings.xml` files on build and deploy servers with the required credentials.
+🌐 4️⃣ Deploy Server Setup
+Step 1: Install Apache Tomcat
+bash
+Copy code
+sudo apt update -y
+sudo apt install tomcat9 tomcat9-admin -y
+Step 2: Verify Tomcat is running
+bash
+Copy code
+sudo systemctl status tomcat9
+Access in browser:
 
-4. **Monitor Artifactory**  
-   Verify that:
-   - The repository is accessible from the build server  
-   - Artifacts are uploaded successfully  
-   - Sufficient disk space and repository health are maintained  
+cpp
+Copy code
+http://<DEPLOY_SERVER_IP>:8080
+Step 3: Download .war file from JFrog
+bash
+Copy code
+cd /tmp
+wget --user=admin --password=<your_admin_password> \
+"http://<JFROG_SERVER_IP>:8081/artifactory/java-web-release/JavaWebCalculatorApp/1.0/JavaWebCalculatorApp-1.0.war" \
+-O JavaWebCalculatorApp.war
+Step 4: Deploy the .war to Tomcat
+bash
+Copy code
+sudo cp JavaWebCalculatorApp.war /var/lib/tomcat9/webapps/
+sudo systemctl restart tomcat9
+Step 5: Access the Application
+Open your browser:
 
-### Deliverables
-- JFrog Artifactory server running and accessible  
-- Configured repositories for releases and snapshots  
-- Authentication successfully tested between build and deploy servers  
-- Uploaded `.war` file visible in the JFrog UI  
+cpp
+Copy code
+http://<DEPLOY_SERVER_IP>:8080/JavaWebCalculatorApp
+🔁 5️⃣ End-to-End Testing
+✅ Build & Upload from Build Server
+bash
+Copy code
+mvn clean install
+mvn deploy
+✅ Verify in JFrog Artifactory
+Check the uploaded artifact in:
 
----
+ruby
+Copy code
+http://<JFROG_SERVER_IP>:8082/ui/repos/tree/General/java-web-release
+✅ Download & Deploy on Deploy Server
+bash
+Copy code
+wget --user=admin --password=<your_admin_password> \
+"http://<JFROG_SERVER_IP>:8081/artifactory/java-web-release/JavaWebCalculatorApp/1.0/JavaWebCalculatorApp-1.0.war" \
+-O JavaWebCalculatorApp.war
 
-## 🚀 3. Deploy Server Setup
-
-### Overview
-The Deploy Server hosts the Java web application by fetching the `.war` file from JFrog Artifactory and deploying it using **Apache Tomcat**.
-
-### Steps
-
-1. **Install Apache Tomcat**  
-   Configure Apache Tomcat as the application server for hosting the Java Web Calculator App.
-
-2. **Fetch Artifact from JFrog**  
-   Configure a Maven or custom script to download the `.war` file from JFrog Artifactory using repository URL and credentials.
-
-3. **Automate Deployment**  
-   Copy the `.war` file to the Tomcat `webapps/` directory.  
-   Start or restart Tomcat to automatically deploy the application.
-
-4. **Test the Application**  
-   Access the application in a web browser using:  
-   `http://<DEPLOY_SERVER_IP>:8080/<artifact-name>`
+sudo cp JavaWebCalculatorApp.war /var/lib/tomcat9/webapps/
+sudo systemctl restart tomcat9
+✅ Test in Browser
+cpp
+Copy code
+http://<DEPLOY_SERVER_IP>:8080/JavaWebCalculatorApp
+If you see the Java Web Calculator interface — 🟢 Congratulations!
+Your multi-server CI/CD pipeline using JFrog Artifactory is complete.
