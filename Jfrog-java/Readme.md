@@ -61,6 +61,10 @@ Open your browser and visit:
 ```
 http://<JFROG_SERVER_IP>:8082/ui/
 ```
+***accessing Jfrog***
+
+<img width="1599" height="654" alt="Jfrog opening1" src="https://github.com/user-attachments/assets/1829d7dd-f868-4d73-a298-7e65ecf4eeb8" />
+
 Step 4: Create Maven Repositories
 In the JFrog UI:
 
