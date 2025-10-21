@@ -62,61 +62,13 @@ Open your browser and visit:
 http://<JFROG_SERVER_IP>:8082/ui/
 ```
 ***accessing Jfrog***
+<img width="1599" height="654" alt="Jfrog opening1" src="https://github.com/user-attachments/assets/677c7d10-816d-4055-ba88-5656e72a20f4" />
 
-<img width="1599" height="654" alt="Jfrog opening1" src="https://github.com/user-attachments/assets/1829d7dd-f868-4d73-a298-7e65ecf4eeb8" />
+***Jfrog-login page***
 
-Step 4: Create Maven Repositories
-In the JFrog UI:
+<img width="1556" height="704" alt="login page2" src="https://github.com/user-attachments/assets/5127b52e-595a-486d-902a-aafbaf502459" />
 
-Go to Administration → Repositories → Local
 
-Click New Local Repository
-
-Choose Maven → Release
-
-Name it java-web-release
-
-Save it
-
-Copy the repository URL, e.g.:
-
-```
-http://<JFROG_SERVER_IP>:8081/artifactory/java-web-release
-```
-⚙️ 3️⃣ Configure Maven for JFrog Deployment
-Step 1: Update pom.xml
-Add this section inside <distributionManagement>:
-
-```
-<distributionManagement>
-    <repository>
-        <id>jfrog-release</id>
-        <url>http://<JFROG_SERVER_IP>:8081/artifactory/java-web-release</url>
-    </repository>
-</distributionManagement>
-```
-Step 2: Configure Maven credentials in ~/.m2/settings.xml
-```
-vim ~/.m2/settings.xml
-Add the following:
-
-```
-<settings>
-  <servers>
-    <server>
-      <id>jfrog-release</id>
-      <username>admin</username>
-      <password><your_admin_password></password>
-    </server>
-  </servers>
-</settings>
-Step 3: Deploy Artifact to JFrog
-```
-mvn deploy
-✅ This uploads the .war file to JFrog Artifactory under java-web-release.
-
-Step 4: Verify Upload
-In JFrog UI → Repositories → java-web-release → check for your .war file.
 
 🌐 4️⃣ Deploy Server Setup
 Step 1: Install Apache Tomcat
