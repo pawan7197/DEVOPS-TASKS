@@ -47,8 +47,9 @@ Step 4: Build the Project
 mvn clean install
 ```
 
-📦 2️⃣ JFrog Repository Server Setup
-Step 1: Install JFrog Artifactory OSS
+## 2️⃣ JFrog Repository Server Setup
+
+Step 1: Install JFrog Artifactory 
 ```
 sudo apt update -y
 wget https://releases.jfrog.io/artifactory/artifactory-debs/pool/jfrog-artifactory-oss/jfrog-artifactory-oss-7.104.12.deb
@@ -101,7 +102,8 @@ http://<JFROG_SERVER_IP>:8082/ui/
 
 
 
-🌐 4️⃣ Deploy Server Setup
+## 🌐 4️⃣ Deploy Server Setup
+
 Step 1: Install Apache Tomcat
 ```
 sudo apt update -y
