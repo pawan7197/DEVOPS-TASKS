@@ -23,9 +23,10 @@ The system consists of **three servers**:
 ## 🚀 1️⃣ Java Build Server Setup
 
 ### Step 1: Update and Install Java + Maven + Git
-```bash
+```
 sudo apt update -y
 sudo apt install openjdk-17-jdk maven git -y
+```
 Step 2: Verify installations
 bash
 Copy code
