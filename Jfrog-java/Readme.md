@@ -8,6 +8,10 @@ The system consists of **three servers**:
 2. **JFrog Repository Server** → Store and manage build artifacts  
 3. **Deploy Server** → Download and deploy the application to Apache Tomcat  
 
+***Three servers***
+
+<img width="1599" height="656" alt="instances" src="https://github.com/user-attachments/assets/a00aadff-460f-4e45-a0ec-0c41c31a0a11" />
+
 ---
 
 ## 🖥️ Prerequisites
@@ -83,11 +87,11 @@ http://<JFROG_SERVER_IP>:8082/ui/
 ***Copy the repo URL and ID in pom.xml***
 <img width="1599" height="837" alt="copy the repo URL and ID in POM XML at distribution management" src="https://github.com/user-attachments/assets/ddd4a3ef-cc08-4727-8d68-0dabfe91499e" />
 
-***now open the settings.xml file***
+***now open the settings.xml file on build-server***
 
 <img width="753" height="146" alt="now go to settings xml file 8" src="https://github.com/user-attachments/assets/852fea4e-4f2c-480f-ab43-92a9ab898749" />
 
-***credentials updated in settings.xml**
+***credentials updated in settings.xml on build server**
 
 <img width="1595" height="835" alt="setting xml file credentilas update 9" src="https://github.com/user-attachments/assets/3ecfe061-0d45-4df7-9c02-1cbead872a20" />
 
