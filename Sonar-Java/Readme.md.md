@@ -81,22 +81,39 @@ performing SonarQube analysis.
     Downloads the Java web calculator project.
 
 10. **Build the Maven Project**
-    `bash     cd JavaWebCalculator/     mvn package` Builds the Java
+    ```
+    cd JavaWebCalculator/
+      mvn package
+    ```
+    Builds the Java
     project and creates a `.war` file.
 
-11. **Start SonarQube Server**
-    `bash     cd ~/sonarqube-6.7.7/bin/linux-x86-64     ./sonar.sh start     ./sonar.sh status`
+12. **Start SonarQube Server**
+    ```
+    ~/sonarqube-6.7.7/bin/linux-x86-64
+        ./sonar.sh start
+      ./sonar.sh status`
+    ```
     Starts SonarQube and checks its status.
 
-12. **Run SonarQube Analysis**
-    `bash     mvn sonar:sonar       -Dsonar.host.url=http://98.81.81.192:9000       -Dsonar.login=75cd7bddcc65146c5bfabae1f4377c834feb3885`
+13. **Run SonarQube Analysis**
+    ```
+    mvn sonar:sonar
+    
+    -Dsonar.host.url=http://98.81.81.192:9000
+    -Dsonar.login=75cd7bddcc65146c5bfabae1f4377c834feb3885
+    ```
     Runs code quality analysis using Maven and SonarQube.
 
-13. **Edit `pom.xml` (if required)** `bash     sudo vi pom.xml` Used for
+14. **Edit `pom.xml` (if required)**
+    ```
+    sudo vi pom.xml
+   ```
+   Used for
     adjusting configurations such as plugin details.
-
-------------------------------------------------------------------------
-
+    ```
+        ------------------------------------------------------------------------
+```
 ## ✅ Summary
 
 You have: - Installed **Java 8** - Built a **Java Maven project** -
