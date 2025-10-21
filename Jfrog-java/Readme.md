@@ -179,33 +179,3 @@ http://<DEPLOY_SERVER_IP>:8080/JavaWebCalculatorApp
 <img width="1302" height="736" alt="output 18" src="https://github.com/user-attachments/assets/be0862a6-2561-4927-8469-209db222fb2d" />
 
 
-
-
-🔁 5️⃣ End-to-End Testing
-✅ Build & Upload from Build Server
-
-```
-mvn clean install
-mvn deploy
-```
-✅ Verify in JFrog Artifactory
-Check the uploaded artifact in:
-
-```
-http://<JFROG_SERVER_IP>:8082/ui/repos/tree/General/java-web-release
-```
-✅ Download & Deploy on Deploy Server
-```
-wget --user=admin --password=<your_admin_password> \
-"http://<JFROG_SERVER_IP>:8081/artifactory/java-web-release/JavaWebCalculatorApp/1.0/JavaWebCalculatorApp-1.0.war" \
--O JavaWebCalculatorApp.war
-
-sudo cp JavaWebCalculatorApp.war /var/lib/tomcat9/webapps/
-sudo systemctl restart tomcat9
-```
-✅ Test in Browser
-```
-http://<DEPLOY_SERVER_IP>:8080/JavaWebCalculatorApp
-```
-If you see the Java Web Calculator interface — 🟢 Congratulations!
-Your multi-server CI/CD pipeline using JFrog Artifactory is complete.
