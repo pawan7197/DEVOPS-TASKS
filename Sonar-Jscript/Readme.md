@@ -125,31 +125,31 @@ Open the SonarQube dashboard in a browser to view the analysis results.
 
 ## IMAGES
 
-** 1.Instance launch**
+** 1.INSTANCE-LAUNCH**
 
 <img width="1360" height="212" alt="instance" src="https://github.com/user-attachments/assets/4b789863-77d9-4c89-9fba-d77420b94a7b" />
 
-**ssh-connect**
+**SSH-CONNECT**
 
 <img width="1599" height="625" alt="ssh-connect" src="https://github.com/user-attachments/assets/9a3bcff0-3e2c-4dcb-b5b0-ddfbbdee8cfc" />
 
-**Hostname-changed**
+**HOSTNAME-CHANGED**
 
 <img width="564" height="128" alt="hostname changed" src="https://github.com/user-attachments/assets/0224ced2-87dc-42de-8dd1-3df05693967a" />
 
-**Update-server**
+**UPDATE-SERVER**
 
 <img width="905" height="126" alt="update the server" src="https://github.com/user-attachments/assets/871ddba2-5895-4806-be9e-808559a6e572" />
 
-**Install-curl**
+**INSTALL-CURL**
 
 <img width="711" height="170" alt="install curl" src="https://github.com/user-attachments/assets/b13934f0-4d76-453f-98b6-5b69391e00ea" />
 
-**curl**
+**CURL**
 
 <img width="966" height="409" alt="curl " src="https://github.com/user-attachments/assets/65f7b58d-ac81-4dec-a138-c8db07da325c" />
 
-**installnode.js**
+**INSTALL-NODE.JS**
 
 <img width="939" height="317" alt="install node js" src="https://github.com/user-attachments/assets/a6e34033-9ddd-4f2b-abda-c5d3a69feb34" />
 
@@ -227,9 +227,6 @@ Open the SonarQube dashboard in a browser to view the analysis results.
 
 
 <img width="1526" height="830" alt="output1" src="https://github.com/user-attachments/assets/37f707a9-67ba-4122-a53a-cc8f22272c55" />
-
-
-
 
 
 **Author**
