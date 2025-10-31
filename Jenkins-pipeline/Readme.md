@@ -122,10 +122,9 @@ It helps maintain consistency, reduces manual interventions, and increases deplo
 ![Image](https://github.com/user-attachments/assets/814e00b4-4bcb-4458-8979-2fceaec380e2)
 
 
-![Image](https://github.com/user-attachments/assets/a92347b7-e13d-48f2-9e0d-6caa59c143b8)
+<img width="1583" height="773" alt="Image" src="https://github.com/user-attachments/assets/8ef1b8b3-3b38-43f6-8313-2d88786106fb" />
 
 
-![Image](https://github.com/user-attachments/assets/d051825d-28bc-4b09-8a3f-dbb105befe08)
 
 
 ![Image](https://github.com/user-attachments/assets/a929a41e-bcaa-40ce-bd82-a47c6508b00d)
