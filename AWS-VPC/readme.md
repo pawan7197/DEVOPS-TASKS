@@ -28,6 +28,12 @@ This project builds a production-style AWS VPC architecture using Terraform, fea
 * **DNS Hostnames:** Enabled
 * **DNS Resolution:** Enabled
 
+<img width="1365" height="283" alt="1" src="https://github.com/user-attachments/assets/786739b9-e774-492e-8cea-acebb82a710e" />
+
+
+
+<img width="1398" height="657" alt="2" src="https://github.com/user-attachments/assets/b33bdea7-a49d-4e8c-880f-30315a0989da" />
+
 ### **Tags (applied to all resources)**
 
 ```
@@ -40,6 +46,10 @@ CostCenter  = "AWS-Networking"
 ---
 
 ## 🧩 2. Subnet Architecture
+
+
+<img width="1388" height="477" alt="3" src="https://github.com/user-attachments/assets/4b353b4d-84e8-4d47-82dd-d054098bdff3" />
+
 
 This VPC contains **six subnets**, each with a **unique CIDR size** to match expected IP usage.
 
@@ -76,6 +86,9 @@ Tier = "public"  /  "private"
 
 ## 🌐 3. Internet Gateway
 
+<img width="1197" height="181" alt="5" src="https://github.com/user-attachments/assets/823b3010-0928-4b58-819f-51a35ddba204" />
+
+
 * **Name:** `asym-igw`
 * Attached to the VPC
 * Public route tables use IGW as default route
@@ -83,6 +96,9 @@ Tier = "public"  /  "private"
 ---
 
 ## 🔄 4. NAT Gateway Design
+
+<img width="1382" height="210" alt="6" src="https://github.com/user-attachments/assets/cded7764-16a9-4c75-8191-5ab62d332024" />
+
 
 ### **Strategy:** Single NAT Gateway
 
@@ -108,6 +124,10 @@ A single NAT Gateway is deployed in the **largest public subnet** (`Public Subne
 ---
 
 ## 🧭 5. Route Table Structure
+
+
+<img width="1382" height="305" alt="4" src="https://github.com/user-attachments/assets/3b037476-97da-4ee9-a046-1c640e36127e" />
+
 
 ### **Public Route Tables**
 
